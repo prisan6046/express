@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+  <script src="microgear.js"></script>
 </head>
 <style>
 .body{
@@ -253,79 +255,28 @@ body::-webkit-scrollbar {
 			System Open
 		</div>
 		<div class="text-center Textcolor col-md-4">
-			test
+            Status Connect
+            <br>
+            <br>
+            <br>
+            <br>
+			<p id="data">กำลังเชื่อมต่อ</p>
 		</div>
 	</div>
       	
 
     </div>
     <div class="col-sm-6">
-      <div class="Message">
-                    
-                    <div class="msg">
-                        <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
-                        </div>
-                    </div>
-                    <div class="msg">
-                        <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
-                        </div>
-                    </div>
-                    <div class="msg">
-                        <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
-                        </div>
-                    </div>
-                    <div class="msg">
-                        <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
-                        </div>
-                    </div>
-                    <div class="msg">
-                        <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
-                        </div>
-                    </div>
-                    <div class="msg">
-                        <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
-                        </div>
-                    </div>
-                    <div class="msg">
-                        <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
-                        </div>
-                    </div>
+      <div class="Message" id="show">
+            
        </div>
 	<div class="row send-wrap">
                     <div class="send-message">
                         <div class="message-text">
-                            <textarea class="no-resize-bar form-control" rows="2" placeholder="Write a message..."></textarea>
+                            <textarea class="no-resize-bar form-control" id="msg" rows="2" placeholder="Write a message..."></textarea>
                         </div>
                         <div class="send-button">
-                            <a class="btn">Send <i class="fa fa-send"></i></a>
+                            <a class="btn" onclick="chat(this)">Send <i class="fa fa-send"></i></a>
                         </div>
                     </div>
                 </div>
@@ -356,6 +307,111 @@ function myTimer() {
     var d = new Date();
     document.getElementById("demo").innerHTML = "Time Now : "+d.toLocaleTimeString();
 }
+</script>
+<script>
+    function chat(){
+
+        var massage = $("#msg").val();
+        var time = document.getElementById("demo").innerHTML;
+        $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Usere</h5><small class=\"col-sm-11 Textcolor\">"+massage+"</small></div></div>")
+        $.ajax({
+			type: "GET",
+			url: 'https://bigphoto-prisanbigbboy.herokuapp.com/replyslow?keyword='+massage,
+			dataType: "json",
+			success: function(r){
+				//console.log(r.Intent);
+               
+                $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">"+r.Intent+"<input onclick=\"responsiveVoice.speak('"+r.Intent+"');\" type='button' value='🔊 Play' /></small></div></div>")
+                $("#msg").val("");
+                 if(r.Intent == "open LED one"){
+                    microgear.publish("/home/led1",""+true);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Open LED<input onclick=\"responsiveVoice.speak('OK Bot Open LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                 if(r.Intent == "open LED two"){
+                    microgear.publish("/home/led2",""+true);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Open LED<input onclick=\"responsiveVoice.speak('OK Bot Open LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                 if(r.Intent == "open LED three"){
+
+                    microgear.publish("/home/led3",""+true);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Open LED<input onclick=\"responsiveVoice.speak('OK Bot Open LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                
+                if(r.Intent == "open LED four"){
+                    microgear.publish("/home/led4",""+true);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Open LED<input onclick=\"responsiveVoice.speak('OK Bot Open LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                 if(r.Intent == "off LED one"){
+                    microgear.publish("/home/led1",""+false);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Off LED<input onclick=\"responsiveVoice.speak('OK Bot off LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                 if(r.Intent == "off LED two"){
+                    microgear.publish("/home/led2",""+false);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Off LED<input onclick=\"responsiveVoice.speak('OK Bot off LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                 if(r.Intent == "off LED three"){
+
+                    microgear.publish("/home/led3",""+false);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Off LED<input onclick=\"responsiveVoice.speak('OK Bot off LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                if(r.Intent == "off LED four"){
+                    microgear.publish("/home/led4",""+false);
+                     $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Off LED<input onclick=\"responsiveVoice.speak('OK Bot off LED');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                if(r.Intent == "open All LED"){
+                    microgear.publish("/home/led1",""+true);
+                    microgear.publish("/home/led2",""+true);
+                    microgear.publish("/home/led3",""+true);
+                    microgear.publish("/home/led4",""+true);
+                    $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Open LED All<input onclick=\"responsiveVoice.speak('OK Bot Open LED All');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+                if(r.Intent == "off All LED"){
+                    microgear.publish("/home/led1",""+false);
+                    microgear.publish("/home/led2",""+false);
+                    microgear.publish("/home/led3",""+false);
+                    microgear.publish("/home/led4",""+false);
+                    $("#show").append("<div class=\"msg\"><div class=\"media-body\"><small class=\"pull-right time\"><i class=\"fa fa-clock-o\"></i> "+time+"</small><h5 class=\"media-heading Textcolor\">Bot</h5><small class=\"col-sm-11 Textcolor\">OK Bot Off LED All<input onclick=\"responsiveVoice.speak('OK Bot Off LED All');\" type='button' value='🔊 Play' /></small></div></div>")
+                }
+			},
+			error: function(jqXHR, status, error){
+				alert("Can't load a service provider list: "+error);
+			}
+		});
+    }
+</script>
+<script>
+        const APPID     = 'botController';
+        const APPKEY    = 'T6WOUHZYkI0g0Ek';
+        const APPSECRET = 'pK0gY7XBaedEu6GQ4chMxBegW';
+        const ALIAS = 'Control';
+        var microgear = Microgear.create({
+            key: APPKEY,
+            secret: APPSECRET,
+            alias : ALIAS         /*  optional  */
+        });
+
+        microgear.on('message',function(topic,msg) {
+            //
+        });
+
+        microgear.on('connected', function() {
+            microgear.setAlias(ALIAS);    /* alias can be renamed anytime with this function */
+            microgear.subscribe("/home/+");
+            document.getElementById("data").innerHTML = "เชื่อมต่อสำเร็จ";
+            
+        });
+
+        microgear.on('present', function(event) {
+            console.log(event);
+        });
+
+        microgear.on('absent', function(event) {
+            console.log(event);
+        });
+
+        microgear.resettoken(function(err) {
+            microgear.connect(APPID);
+        });   
 </script>
 
 
